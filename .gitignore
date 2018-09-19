@@ -1,0 +1,9 @@
+#### Directories to ignore for GIT
+# service git folder
+.git/
+# service pyCharm folder
+.idea/
+
+#### Files to ignore for GIT
+# compiled python files
+*.pyc
