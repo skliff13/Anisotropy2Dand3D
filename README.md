@@ -1,6 +1,6 @@
 # Anisotropy2Dand3D
 
-Introduction
+Introduction and description will be here
 
 ## 2D case
 
