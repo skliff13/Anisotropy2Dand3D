@@ -25,9 +25,9 @@ def example3d():
         min_grad = test[3]
         power = test[4]
 
-        r, isotropy, std, entropy = anisotropy3d(im, min_grad=min_grad, power=power)
+        rho, isotropy, std, entropy = anisotropy3d(im, min_grad=min_grad, power=power)
 
-        X, Y, Z = build_surface(r)
+        xx, yy, zz = build_surface(rho)
 
         fig = plt.figure()
         ax = fig.add_subplot(121)
@@ -36,7 +36,7 @@ def example3d():
 
         ax = fig.add_subplot(122, projection='3d')
         ax.plot_surface(
-            X, Y, Z, rstride=1, cstride=1, cmap=plt.get_cmap('jet'),
+            xx, yy, zz, rstride=1, cstride=1, cmap=plt.get_cmap('jet'),
             linewidth=0, antialiased=False, alpha=0.5)
         ax.set_title('%s\nisotropy=%.03f\nSTD=%.03f\nentropy=%.03f' % (caption2, isotropy, std, entropy), va='bottom')
         ax.set_aspect('equal')

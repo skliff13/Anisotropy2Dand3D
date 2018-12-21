@@ -27,18 +27,18 @@ def example2d():
         min_grad = test[3]
         power = test[4]
 
-        r, isotropy, std, entropy = anisotropy2d(im, min_grad=min_grad, power=power)
+        rho, isotropy, std, entropy = anisotropy2d(im, min_grad=min_grad, power=power)
 
-        step = 2. * np.pi / r.shape[0]
+        step = 2. * np.pi / rho.shape[0]
         angles = np.arange(step / 2, 2 * np.pi + step, step)
-        r = np.append(r, r[0])
+        rho = np.append(rho, rho[0])
 
         ax = plt.subplot(121)
         ax.imshow(im, cmap='gray')
         ax.set_title(caption1, va='bottom')
 
         ax = plt.subplot(122, projection='polar')
-        ax.plot(angles, r)
+        ax.plot(angles, rho)
         ax.set_title('%s\nisotropy=%.03f\nSTD=%.03f\nentropy=%.03f' % (caption2, isotropy, std, entropy), va='bottom')
         ax.grid(True)
         plt.show()
