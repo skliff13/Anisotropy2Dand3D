@@ -8,17 +8,22 @@ from anisotropy2d import anisotropy2d
 
 
 def example2d():
-    test_image1 = rgb2gray(io.imread('lena256.jpg')).astype(float)
+    test_image1 = rgb2gray(io.imread('test_data/lena256.jpg')).astype(float)
 
     sz = 256
     xx = np.linspace(0, 1, sz)
     const_grad, _ = np.meshgrid(xx, xx * 0)
     test_image2 = np.random.rand(sz, sz)
 
+    test_image3 = rgb2gray(io.imread('test_data/grass1.png')).astype(float)
+    test_image4 = rgb2gray(io.imread('test_data/grass2.png')).astype(float)
+
     tests = [['lena', 'Diagram (default)', test_image1, -1, 0],
              ['lena', 'Diagram (min_grad=0.3)', test_image1, 0.3, 0],
              ['lena', 'Diagram (power=1)', test_image1, -1, 1],
-             ['white noise', 'Diagram', test_image2, -1, 0]]
+             ['white noise', 'Diagram', test_image2, -1, 0],
+             ['grass1', 'Diagram (power=1)', test_image3, -1, 1],
+             ['grass2', 'Diagram (power=1)', test_image4, -1, 1]]
 
     for test in tests:
         caption1 = test[0]
